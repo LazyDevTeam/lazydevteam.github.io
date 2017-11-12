@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>3D Touch Demo</title>
+	</head>
+	<body>
+		<script>
+			var canvas = document.createElement('canvas');
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
+			canvas.style.position = 'absolute';
+			document.body.style.overflow = 'hidden';//touchforcechange
+			canvas.ontouchstart = canvas.ontouchmove = canvas.ontouchforcechange = function(e){
+				e.preventDefault();
+				window.touches = e.changedTouches; //.force
+				for(var i in window.touches){
+					var size = window.touches[i].force * 16,
+						x = window.touches[i].pageX,
+						y = window.touches[i].pageY;
+					canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);
+					canvas.getContext('2d').fillRect(x - size/2, y - size/2, size, size);
+				}
+			};
+		</script>
+	</body>
+</html>
