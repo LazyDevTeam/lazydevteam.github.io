@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lazy.DevTeam</title>
+	</head>
+	<body>
+		<!--
+			Lazy.DevTeam Homepage
+			Written by hand, feel
+			free to use as a template,
+			just credit me. Thanks!
+			(iPhoneGuy1101)
+		-->
+		<script>
+			document.body.style.background = "#000"
+			function App(data){
+				this.icon = data.icon;
+				this.name = data.name;
+				this.url = data.url;
+				this.credits = data.credits || [""];
+				this.html = document.createElement('div')
+				this.html.style.width = this.html.style.height = "19vw";
+				this.html.style.border = "0.1% solid black";
+				this.html.style.position = "relative";
+				this.html.style.margin = "1%";
+				this.html.style.background = data.colour || "#05B";
+				this.html.style.display = "inline-block";
+				this.html.style.textAlign = "center";
+				this.label = document.createElement("a");
+				this.label.onclick = function(){
+					alert(this.credits.length>=1?"Credits: \n  "+this.credits.join("\n  "):"Nobody seems to have claimed this project... hmm..");
+				}.bind(this);
+				this.label.style.top = "2vw";
+				this.label.style.padding = "2vw";
+				this.label.style.borderRadius = "2vw";
+				this.label.style.position = "relative";
+				this.label.innerHTML = this.name;
+				this.label.style.top = "2.5vw"
+				this.label.style.background = "rgba(200,200,200,0.5)";
+				this.label.style.color = "rgba(10,10,10,0.75)";
+				this.html.style.borderRadius = "0.75vw";
+				this.image = new Image();
+				this.image.src = this.icon;
+				this.image.style.borderRadius = "100%";
+				this.image.style.width = "10vw";
+				this.image.style.top = "6.25vw";
+				this.image.style.height = "10vw";
+				this.image.style.position = "relative";
+				this.image.style.display = "inline";
+				this.image.style.zIndex = "0";
+				this.image.style.cursor = "hand";
+				this.image.style.cursor = "link";
+				this.image.style.cursor = "pointer";
+				this.image.onclick = function(){
+					document.location.href = this.url;
+				}.bind(this);
+				this.label.style.zIndex = "1";
+				this.html.appendChild(this.label);
+				this.html.appendChild(document.createElement('br'));
+				this.html.appendChild(this.image);
+				document.body.appendChild(this.html);
+			};
+			[
+				{"name": "Our Team", "colour": "#594", "url": "https://lazydevteam.github.io/AboutUs.html", "icon": "http://iPG1101.github.io/icon_homepage.png", "credits": ["iPhoneGuy1101", "Hacks4live", "Lazy Jimmy", "JulienDev18"]},
+				{"name": "iDowngrader", "colour": "#05B", "url": "https://iPhoneDowngrader.github.io/", "icon": "https://iPhoneDowngrader.github.io/iDowngrader/icon.png", "credits": ["iPhoneGuy1101"]},
+				{"name": "C00K13CL1CL3R", "colour": "#05B", "url": "https://iphoneguy1101.github.io/CookieClicker/Clicker.html", "icon": "https://iphoneguy1101.github.io/CookieClicker/images/cookie.png", "credits": ["iPhoneGuy1101"]},
+				{"name": "Jetpack Joe", "colour": "#025", "url": "https://iPG1101.github.io/JetpackJoe/", "icon": "https://iPG1101.github.io/JetpackJoe/JetpackJoe.png", "credits": ["iPhoneGuy1101", "LazyJimmy", "Mr. Stahlmann", "Mr. Velasco"]},
+				{"name": "jjOS (PC)", "colour": "#551", "url": "http://LazyDevTeam.github.io/jjOS/WidgetSpinner.htm", "icon": "https://lazydevteam.github.io/jjOS/web.ico", "credits": ["iPhoneGuy1101"]},
+				{"name": "virtualNES", "colour": "#411", "url": "https://iPG1101.github.io/virtualNES/", "icon": "https://iPG1101.github.io/virtualNES/virtualNES.png", "credits": ["iPhoneGuy1101"]},
+				{"name": "P0xpwn", "colour": "#05B", "url": "http://p0xpwn.gq/", "icon": "http://d2f0ora2gkri0g.cloudfront.net/b4/c4/b4c4128a-7b1c-4ff9-bbee-45e5e1da8ae7.png", "credits": ["Hacks4live", "iPhoneGuy1101"]},
+				{"name": "juliendev8's... zip file", "colour": "#05B", "url": "https://drive.google.com/open?id=0B4DM0WPloDUqbWgzTXFydHkwZ2M", "icon": "http://icons.iconarchive.com/icons/sora-meliae/matrilineare/1024/Mimes-application-x-zip-icon.png", "credits": ["JulienDev8", "WinRAR"]},
+				{"name": "Zip0n", "colour": "#05B", "url": "http://zip0n.gq", "icon": "http://d2f0ora2gkri0g.cloudfront.net/1c/03/1c03ed06-057c-4683-a6bd-707109decf47.png", "credits": ["Hacks4live", "iPhoneGuy1101"]},
+				{"name": "iPhoneGuy1101's Page", "colour": "#05B", "url": "http://iPG1101.github.io/", "icon": "http://iPG1101.github.io/icon_homepage.png", "credits": ["iPhoneGuy1101"]},
+				{"name": "Hacks4live's Page", "colour": "#151", "url": "http://hacks4live.ml/", "icon": "http://d2f0ora2gkri0g.cloudfront.net/2a/31/2a3105bc-95aa-4389-8bdc-68950af9eb7c.jpg", "credits": ["Hacks4live"]}
+			].forEach(function(e){
+				new App(e);
+			});
+			window.onerror = function(){
+				alert("Sorry, but your browser is too out of date.\n\nThis page uses modern technologies to display the links efficiently, but your browser doesn't have any of them. Please install the latest firefox from https://www.firefox.com/.");
+			};
+		</script>
+	</body>
+</html>
