@@ -14,7 +14,7 @@
 				e.preventDefault();
 				window.touches = e.changedTouches; //.force
 				for(var i in window.touches){
-					var size = window.touches[i].force * 16,
+					var size = (window.touches[i].force)||(2) * 16,
 						x = window.touches[i].pageX,
 						y = window.touches[i].pageY;
 					canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);
