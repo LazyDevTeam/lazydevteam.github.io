@@ -5,16 +5,35 @@
 	</head>
 	<body style='background: black; color: #AAA'>
 		<h1 style='color: white'>About us</h1>
-		We are all Lazy and we Develop shit as a hobby so that explains it. Going back in <a id='secs'>8.7</a> seconds...
+		iPhoneGuy1101, hacks4live, juliendev221
 	</body>
 	<script>
-		var a = document.getElementById('secs');
-		var b = new Date().getTime()+8765;
-		var c = function(){
-			a.innerHTML = Math.floor((b - new Date().getTime())/100)/10;
-			setTimeout(c, 75);
-			if(0.2>=Math.floor((b - new Date().getTime())/100)/10) location.href = 'index.html';
+		var posts = {
+			"iPhoneGuy1101 on 18/11/17 (11:51)": {
+				"Our new site is up!": "You probably just came from it, but in case you didn't it's at [https://lazydevteam.github.io](this website)"
+			},
+			"iPhoneGuy1101 on 18/11/17 (12:20)": {
+				"Sp1ral (GUI) released": "Sp1ral has been released. This tool just downloads a jailbreak for you, nothing special. Mainly useful for users who want to just click a few buttons {Version, download, drag+drop to cydia impactor or run the exe}. It requires .NET Framework 4 and a fairly up-to-date internet explorer (unreliable on IE8/9, try using 10/11 if you can)<br/>[https://lazydevteam.github.io/Sp1ral-GUI.exe](Download here)"
+			}
 		};
-		c();
+		for(var i in posts) {
+			var p = document.createElement('div');
+			var h = document.createElement('h2');
+			for(var j in posts[i]){
+				h.innerText = j
+				p.appendChild(h);
+				var c = document.createElement('a')
+				c.innerHTML = posts[i][j]
+					.replace(/\[/g, "<a href=\"")
+					.replace(/\]/g, "\">")
+					.replace(/\(/g, "")
+					.replace(/\)/g, "</a>") + 
+					"<br/><br/><br/><a style='font-size: 60%'>~"+i+"</a>";
+				p.appendChild(c);
+				p.style.background = 'grey';
+				p.style.color = 'black';
+			}
+			document.body.appendChild(p);
+		}
 	</script>
 </html>
